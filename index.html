@@ -37,7 +37,7 @@
         }
         #mensagem {
             margin-top: 20px;
-            text-align: left;
+            text-align: center;
             display: none; /* Inicialmente oculto */
         }
         .firework {
@@ -64,8 +64,7 @@
     <div class="container">
         <h1>Contagem Regressiva</h1>
         <div id="timer"></div>
-        <div id="mensagem">    
-        </div>
+        <div id="mensagem">Feliz 8 meses meu amor</div>
     </div>
     <audio id="fireworkSound">
         <source src="https://www.soundjay.com/button/beep-09.wav" type="audio/wav">
@@ -75,32 +74,17 @@
         function calcularTempo() {
             var dataAtual = new Date();
             var proximoDia12 = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 12);
-            
             if (dataAtual.getDate() >= 12) {
                 proximoDia12.setMonth(proximoDia12.getMonth() + 1);
             }
-            
             var diff = proximoDia12 - dataAtual;
             var diasRestantes = Math.ceil(diff / (1000 * 60 * 60 * 24));
             var plural = diasRestantes === 1 ? 'dia' : 'dias'; // Verifica se é singular ou plural
-            
             document.getElementById('timer').innerHTML = 'Faltam ' + diasRestantes + ' ' + plural + ' para o nosso próximo mesversário.';
-            
             if (dataAtual.getDate() === 12) {
                 document.getElementById('mensagem').style.display = 'block'; // Exibir a mensagem de felicitações
             } else {
                 document.getElementById('mensagem').style.display = 'none'; // Esconder a mensagem
-            }
-            
-            // Contagem regressiva
-            var horas = Math.floor(diff / (1000 * 60 * 60) % 24);
-            var minutos = Math.floor(diff / (1000 * 60) % 60);
-            var segundos = Math.floor(diff / 1000 % 60);
-            
-            document.getElementById('countdown').innerHTML = diasRestantes + ' ' + plural + ', ' + horas + ' horas, ' + minutos + ' minutos, ' + segundos + ' segundos.';
-            
-            if (dataAtual.getDate() === 12) {
-                document.getElementById('mensagem').style.display = 'block'; // Exibir a mensagem de felicitações
             }
         }
 
@@ -111,7 +95,6 @@
             var container = document.querySelector('.container');
             var fireworksAudio = document.getElementById('fireworkSound');
             fireworksAudio.play(); // Toca o som de fogos de artifício
-            
             for (let i = 0; i < 50; i++) { // Mais explosões
                 var firework = document.createElement('div');
                 firework.classList.add('firework');
@@ -119,7 +102,6 @@
                 firework.style.top = Math.random() * container.offsetHeight + 'px';
                 container.appendChild(firework);
             }
-            
             setTimeout(() => {
                 var fireworks = document.querySelectorAll('.firework');
                 fireworks.forEach((firework) => {
