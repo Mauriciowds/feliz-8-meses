@@ -19,7 +19,6 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Necessário para animação dos fogos */
         }
         h1 {
             color: #ff6f61;
@@ -35,81 +34,32 @@
             padding: 10px;
             background-color: #e0f2e9;
         }
-        #mensagem {
-            margin-top: 20px;
-            text-align: center;
-            display: none; /* Inicialmente oculto */
-        }
-        .firework {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #f00;
-            animation: fireworks 4s ease-out infinite;
-        }
-        @keyframes fireworks {
-            0% {
-                transform: translateY(0) rotate(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-500px) rotate(720deg);
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Contagem Regressiva</h1>
         <div id="timer"></div>
-        <div id="mensagem">Feliz 8 meses meu amor</div>
     </div>
-    <audio id="fireworkSound">
-        <source src="https://www.soundjay.com/button/beep-09.wav" type="audio/wav">
-    </audio>
 
     <script>
         function calcularTempo() {
             var dataAtual = new Date();
             var proximoDia12 = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 12);
+            
             if (dataAtual.getDate() >= 12) {
                 proximoDia12.setMonth(proximoDia12.getMonth() + 1);
             }
+            
             var diff = proximoDia12 - dataAtual;
             var diasRestantes = Math.ceil(diff / (1000 * 60 * 60 * 24));
             var plural = diasRestantes === 1 ? 'dia' : 'dias'; // Verifica se é singular ou plural
-            document.getElementById('timer').innerHTML = 'Faltam ' + diasRestantes + ' ' + plural + ' para o nosso próximo mesversário.';
-            if (dataAtual.getDate() === 12) {
-                document.getElementById('mensagem').style.display = 'block'; // Exibir a mensagem de felicitações
-            } else {
-                document.getElementById('mensagem').style.display = 'none'; // Esconder a mensagem
-            }
+            
+            document.getElementById('timer').innerHTML = 'Faltam ' + diasRestantes + ' ' + plural + ' para o dia 12.';
         }
 
         setInterval(calcularTempo, 1000);
         calcularTempo();
-
-        function comemorar() {
-            var container = document.querySelector('.container');
-            var fireworksAudio = document.getElementById('fireworkSound');
-            fireworksAudio.play(); // Toca o som de fogos de artifício
-            for (let i = 0; i < 50; i++) { // Mais explosões
-                var firework = document.createElement('div');
-                firework.classList.add('firework');
-                firework.style.left = Math.random() * container.offsetWidth + 'px';
-                firework.style.top = Math.random() * container.offsetHeight + 'px';
-                container.appendChild(firework);
-            }
-            setTimeout(() => {
-                var fireworks = document.querySelectorAll('.firework');
-                fireworks.forEach((firework) => {
-                    firework.remove();
-                });
-                calcularTempo(); // Volta para a contagem regressiva
-            }, 8000); // Aumenta o tempo de duração dos fogos de artifício para 8 segundos
-        }
     </script>
 </body>
 </html>
