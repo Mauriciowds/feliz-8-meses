@@ -12,17 +12,27 @@
             background-color: #f5f5f5;
             color: #333;
         }
-        #container {
+        .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
         }
         h1 {
             color: #ff6f61;
+            text-align: center;
+        }
+        #timer {
+            margin-top: 20px;
+            font-size: 24px;
+            text-align: center;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #e0f2e9;
         }
         #mensagem {
             margin-top: 20px;
@@ -33,17 +43,12 @@
             font-size: 16px;
             line-height: 1.6;
         }
-        #timer {
-            margin-top: 20px;
-            font-size: 24px;
-            text-align: center;
-            color: #4CAF50;
-        }
     </style>
 </head>
 <body>
-    <div id="container">
+    <div class="container">
         <h1>Feliz 8 meses meu amor</h1>
+        <div id="timer"></div>
         <div id="mensagem">
             <p>Feliz 8 meses meu amor, eu espero que tenhamos muito mais meses e anos pela frente</p>
             <div id="textoSalvo">
@@ -58,11 +63,9 @@
                 Não consigo achar palavras o suficiente pra dizer o quanto eu te amo e te acho linda meu amor, e espero que tenhamos muitos mais anos juntos para ter mais momentos assim, tanto os bons quantos os ruins (mais bons do que ruins espero).</p>
             </div>
         </div>
-        <div id="timer"></div>
     </div>
 
     <script>
-        // Função para calcular os meses desde o início do namoro e exibir a contagem
         function calcularTempo() {
             var dataInicio = new Date('2023-06-12'); // Coloque a data do início do namoro aqui (ano-mês-dia)
             var dataAtual = new Date();
@@ -71,7 +74,8 @@
             document.getElementById('timer').innerHTML = 'Já são ' + meses + ' meses juntos!';
         }
 
-        setInterval(calcularTempo, 1000); // Chama a função para calcular o tempo a cada segundo
+        setInterval(calcularTempo, 1000);
+        calcularTempo();
     </script>
 </body>
 </html>
