@@ -14,11 +14,9 @@
         #mensagem {
             margin-top: 50px;
         }
-        #texto {
-            display: none;
-        }
         #textoSalvo {
             margin-top: 20px;
+            font-size: 18px;
         }
         #timer {
             margin-top: 20px;
@@ -35,9 +33,11 @@
     <div id="timer"></div>
 
     <script>
+        // Texto pré-determinado
+        var textoEspecial = "Amor, nestes 8 meses ao seu lado, cada dia foi uma bênção. Sua presença ilumina minha vida e enche meu coração de alegria. Te amo mais do que palavras podem expressar. Feliz 8º mês de namoro!";
+
         // Função para exibir o texto especial
         function exibirTextoEspecial() {
-            var textoEspecial = "Amor, nestes 8 meses ao seu lado, cada dia foi uma bênção. Sua presença ilumina minha vida e enche meu coração de alegria. Te amo mais do que palavras podem expressar. Feliz 8º mês de namoro!";
             document.getElementById('textoSalvo').innerHTML = textoEspecial;
         }
 
