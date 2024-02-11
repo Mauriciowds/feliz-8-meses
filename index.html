@@ -71,7 +71,7 @@
             document.getElementById('timer').innerHTML = 'Já são ' + meses + ' meses juntos!';
         }
 
-        calcularTempo(); // Chama a função para calcular o tempo assim que a página carrega
+        setInterval(calcularTempo, 1000); // Chama a função para calcular o tempo a cada segundo
     </script>
 </body>
 </html>
