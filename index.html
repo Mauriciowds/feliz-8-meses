@@ -40,10 +40,6 @@
             text-align: left;
             display: none; /* Inicialmente oculto */
         }
-        #testButton {
-            margin-top: 20px;
-            text-align: center;
-        }
         .firework {
             position: absolute;
             width: 10px;
@@ -70,9 +66,6 @@
         <div id="timer"></div>
         <div id="mensagem">
             Feliz 8 meses meu amor, eu espero que tenhamos muito mais meses e anos pela frente
-        </div>
-        <div id="testButton">
-            <button onclick="alternarComemoracao()">Testar Comemoração</button>
         </div>
     </div>
     <audio id="fireworkSound">
@@ -105,37 +98,6 @@
 
         setInterval(calcularTempo, 1000);
         calcularTempo();
-
-        function alternarComemoracao() {
-            if (!comemorando) {
-                comemorar();
-                comemorando = true;
-            } else {
-                comemorando = false;
-                calcularTempo(); // Volta para a contagem regressiva
-            }
-        }
-
-        function comemorar() {
-            var container = document.querySelector('.container');
-            var fireworksAudio = document.getElementById('fireworkSound');
-            fireworksAudio.play(); // Toca o som de fogos de artifício
-            
-            for (let i = 0; i < 50; i++) { // Mais explosões
-                var firework = document.createElement('div');
-                firework.classList.add('firework');
-                firework.style.left = Math.random() * container.offsetWidth + 'px';
-                firework.style.top = Math.random() * container.offsetHeight + 'px';
-                container.appendChild(firework);
-            }
-            
-            setTimeout(() => {
-                var fireworks = document.querySelectorAll('.firework');
-                fireworks.forEach((firework) => {
-                    firework.remove();
-                });
-            }, 8000); // Aumenta o tempo de duração dos fogos de artifício para 8 segundos
-        }
     </script>
 </body>
 </html>
