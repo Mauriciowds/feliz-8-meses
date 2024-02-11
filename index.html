@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mêsversário</title>
+    <title>Feliz 8 meses</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,10 +35,24 @@
             padding: 10px;
             background-color: #e0f2e9;
         }
+        #countdown {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #555;
+        }
         #mensagem {
             margin-top: 20px;
             text-align: left;
-            display: none; /* Inicialmente oculto */
+        }
+        #textoSalvo {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #testButton {
+            margin-top: 20px;
+            text-align: center;
         }
         .firework {
             position: absolute;
@@ -62,10 +76,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Contagem Regressiva</h1>
+        <h1>Feliz 8 meses meu amor</h1>
         <div id="timer"></div>
-        <div id="mensagem">
-            Feliz 8 meses meu amor, eu espero que tenhamos muito mais meses e anos pela frente
+        <div id="countdown"></div>
+        <div id="mensagem" style="display: none;">
+            <p>Feliz 8 meses meu amor, eu espero que tenhamos muito mais meses e anos pela frente</p>
+            <div id="textoSalvo">
+                <p>Oi meu amor, eu resolvi fazer esse presente especial pois sei que meu momo ficou triste por várias coisas que aconteceram, e queria te animar um pouquinho, então resolvi fazer essa cartinha com algumas coisinhas que quero falar pra você, não como desculpa, pra você saber o quanto é especial pra mim.</p>
+
+                <p>Eu quero te dizer que você é incrível, paciente (as vezes), inteligente, amorosa (quando quer), e que eu amo todos nossos momentos juntinhos.
+                Amo ficar de dengo com meu dengo, amo como o dia passa rápido quando eu to com você, amo te estressar (as vezes estresso até demais meu momo), amo te provocar, amo conversar com você sobre os assuntos mais legais, amo nossa intimidade, amo como você sempre ta lá pra mim quando eu preciso, amo como você se preocupa comigo, amo seus olhos e cabelos castanhos que brilham no sol, amo todas as suas unhas, amo suas covinhas, amo seus olhos grandõesss, amo seus dedos elásticos, amo seu amor por rímel, amo como você sempre ta cheirosa, amo seu mindinho que não tem unha, amo você de cabelo preso, amo você de cabelo solto, amo você de vestido e de blusa, amo você de calça e shorts, amo você sem sutiã e com sutiã (sem é particularmente melhor), amo você de pijama, amo você arrumada, amo você selvagem, amo você paty, amo você maloqueira, noia, cria, amo seu jeitinho bobo, amo seu sorriso e sua risada, amo seus peitos, amo sua bunda, amo suas coxas.
+                Além de amar você, amo meus momentos com você
+                Amo quando a gente sai pra vários lugares, tipo quando a gente foi pra praia e meu momo quase morre na onda, ou no show do charlie brown e a gente ficou dançando, ou no barzinho no seu aniversário que ficamos provando as bebidas.
+                Mas também amo quando a gente só fica em casa, conversando, fazendo</p>
+        </div>
+        <div id="testButton">
+            <button onclick="comemorar()">Testar Comemoração</button>
         </div>
     </div>
     <audio id="fireworkSound">
@@ -73,8 +99,6 @@
     </audio>
 
     <script>
-        var comemorando = false; // Variável para controlar o estado da comemoração
-
         function calcularTempo() {
             var dataAtual = new Date();
             var proximoDia12 = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 12);
@@ -89,12 +113,12 @@
             
             document.getElementById('timer').innerHTML = 'Faltam ' + diasRestantes + ' ' + plural + ' para o nosso próximo mesversário.';
             
-            if (dataAtual.getDate() === 12 && !comemorando) {
+            if (dataAtual.getDate() === 12) {
                 document.getElementById('mensagem').style.display = 'block'; // Exibir a mensagem de felicitações
             } else {
                 document.getElementById('mensagem').style.display = 'none'; // Esconder a mensagem
             }
-
+            
             // Contagem regressiva
             var horas = Math.floor(diff / (1000 * 60 * 60) % 24);
             var minutos = Math.floor(diff / (1000 * 60) % 60);
@@ -105,6 +129,27 @@
 
         setInterval(calcularTempo, 1000);
         calcularTempo();
+
+        function comemorar() {
+            var container = document.querySelector('.container');
+            var fireworksAudio = document.getElementById('fireworkSound');
+            fireworksAudio.play(); // Toca o som de fogos de artifício
+            
+            for (let i = 0; i < 50; i++) { // Mais explosões
+                var firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = Math.random() * container.offsetWidth + 'px';
+                firework.style.top = Math.random() * container.offsetHeight + 'px';
+                container.appendChild(firework);
+            }
+            
+            setTimeout(() => {
+                var fireworks = document.querySelectorAll('.firework');
+                fireworks.forEach((firework) => {
+                    firework.remove();
+                });
+            }, 8000); // Aumenta o tempo de duração dos fogos de artifício para 8 segundos
+        }
     </script>
 </body>
 </html>
