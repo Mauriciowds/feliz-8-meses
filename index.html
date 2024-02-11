@@ -67,13 +67,18 @@
 
     <script>
         function calcularTempo() {
-            var dataInicio = new Date('2023-06-12'); // Coloque a data do início do namoro aqui (ano-mês-dia)
             var dataAtual = new Date();
-            var diff = Math.abs(dataAtual - dataInicio);
-            var meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
-            document.getElementById('timer').innerHTML = 'Já são ' + meses + ' meses juntos!';
+            var proximoDia12 = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 12);
             
-            // Verificar se é dia 12 do mês
+            if (dataAtual.getDate() >= 12) {
+                proximoDia12.setMonth(proximoDia12.getMonth() + 1);
+            }
+            
+            var diff = proximoDia12 - dataAtual;
+            var diasRestantes = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('timer').innerHTML = 'Faltam ' + diasRestantes + ' dias para o próximo dia 12.';
+            
             if (dataAtual.getDate() === 12) {
                 document.getElementById('mensagem').style.display = 'block'; // Exibir a mensagem de felicitações
             } else {
