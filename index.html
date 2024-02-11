@@ -14,6 +14,12 @@
         #mensagem {
             margin-top: 50px;
         }
+        #texto {
+            display: none;
+        }
+        #textoSalvo {
+            margin-top: 20px;
+        }
         #timer {
             margin-top: 20px;
             font-size: 24px;
@@ -23,19 +29,16 @@
 <body>
     <h1>8 Meses de Amor!</h1>
     <div id="mensagem">
-        <p>Parabéns pelo nosso 8º mês juntos! Este é um espaço para você escrever seu texto especial:</p>
-        <textarea id="texto" rows="4" cols="50" placeholder="Digite seu texto aqui..."></textarea>
-        <br>
-        <button onclick="salvarTexto()">Salvar</button>
+        <p>Parabéns pelo nosso 8º mês juntos! Aqui está o texto especial para você:</p>
+        <div id="textoSalvo"></div>
     </div>
     <div id="timer"></div>
 
     <script>
-        // Função para salvar o texto
-        function salvarTexto() {
-            var texto = document.getElementById('texto').value;
-            // Aqui você pode adicionar um código para salvar o texto, seja em um banco de dados ou em localStorage
-            alert('Texto salvo com sucesso!');
+        // Função para exibir o texto especial
+        function exibirTextoEspecial() {
+            var textoEspecial = "Amor, nestes 8 meses ao seu lado, cada dia foi uma bênção. Sua presença ilumina minha vida e enche meu coração de alegria. Te amo mais do que palavras podem expressar. Feliz 8º mês de namoro!";
+            document.getElementById('textoSalvo').innerHTML = textoEspecial;
         }
 
         // Função para calcular os meses desde o início do namoro e exibir a contagem
@@ -47,6 +50,7 @@
             document.getElementById('timer').innerHTML = 'Já são ' + meses + ' meses juntos!';
         }
 
+        exibirTextoEspecial(); // Chama a função para exibir o texto especial
         calcularTempo(); // Chama a função para calcular o tempo assim que a página carrega
     </script>
 </body>
