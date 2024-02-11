@@ -28,7 +28,7 @@
             margin-top: 20px;
             text-align: center;
         }
-        .timer {
+        #timer {
             margin-top: 20px;
             text-align: center;
             font-size: 24px;
@@ -42,36 +42,31 @@
         <div id="mensagem">
             <p>Feliz 8 meses meu amor. Espero que tenhamos muitos mais meses e anos pela frente.</p>
             <p>Oi meu amor, eu resolvi fazer esse presente especial pois sei que você ficou triste por várias coisas que aconteceram, e queria te animar um pouquinho...</p>
-            <!-- Adicionei uma segunda contagem regressiva abaixo da mensagem -->
-            <div class="timer" id="timer1"></div>
-            <div class="timer" id="timer2"></div>
+            <!-- Contagem regressiva para o próximo dia 12 -->
+            <div id="timer"></div>
         </div>
     </div>
 
     <script>
-        function calcularTempo(id, dia) {
+        function calcularTempo() {
             var dataAtual = new Date();
-            var proximoDia = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), dia);
+            var proximoDia12 = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 12);
             
-            if (dataAtual.getDate() >= dia) {
-                proximoDia.setMonth(proximoDia.getMonth() + 1);
+            if (dataAtual.getDate() >= 12) {
+                proximoDia12.setMonth(proximoDia12.getMonth() + 1);
             }
             
-            var diff = proximoDia - dataAtual;
+            var diff = proximoDia12 - dataAtual;
             var dias = Math.floor(diff / (1000 * 60 * 60 * 24));
             var horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             var segundos = Math.floor((diff % (1000 * 60)) / 1000);
             
-            document.getElementById(id).innerHTML = 'Faltam ' + dias + ' dias, ' + horas + ' horas, ' + minutos + ' minutos e ' + segundos + ' segundos para o dia ' + dia + '.';
+            document.getElementById('timer').innerHTML = 'Faltam ' + dias + ' dias, ' + horas + ' horas, ' + minutos + ' minutos e ' + segundos + ' segundos para o próximo dia 12.';
         }
 
-        setInterval(function() {
-            calcularTempo('timer1', 12);
-            calcularTempo('timer2', 12);
-        }, 1000);
-        calcularTempo('timer1', 12);
-        calcularTempo('timer2', 12);
+        setInterval(calcularTempo, 1000);
+        calcularTempo(); // Para atualizar imediatamente ao carregar a página
     </script>
 </body>
 </html>
