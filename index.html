@@ -60,7 +60,7 @@
             height: 10px;
             border-radius: 50%;
             background-color: #f00;
-            animation: fireworks 1s ease-out infinite;
+            animation: fireworks 4s ease-out infinite;
         }
         @keyframes fireworks {
             0% {
@@ -88,15 +88,15 @@
                 Amo ficar de dengo com meu dengo, amo como o dia passa rápido quando eu to com você, amo te estressar (as vezes estresso até demais meu momo), amo te provocar, amo conversar com você sobre os assuntos mais legais, amo nossa intimidade, amo como você sempre ta lá pra mim quando eu preciso, amo como você se preocupa comigo, amo seus olhos e cabelos castanhos que brilham no sol, amo todas as suas unhas, amo suas covinhas, amo seus olhos grandõesss, amo seus dedos elásticos, amo seu amor por rímel, amo como você sempre ta cheirosa, amo seu mindinho que não tem unha, amo você de cabelo preso, amo você de cabelo solto, amo você de vestido e de blusa, amo você de calça e shorts, amo você sem sutiã e com sutiã (sem é particularmente melhor), amo você de pijama, amo você arrumada, amo você selvagem, amo você paty, amo você maloqueira, noia, cria, amo seu jeitinho bobo, amo seu sorriso e sua risada, amo seus peitos, amo sua bunda, amo suas coxas.
                 Além de amar você, amo meus momentos com você
                 Amo quando a gente sai pra vários lugares, tipo quando a gente foi pra praia e meu momo quase morre na onda, ou no show do charlie brown e a gente ficou dançando, ou no barzinho no seu aniversário que ficamos provando as bebidas.
-                Mas também amo quando a gente só fica em casa, conversando, fazendo uns quizes, vendo filmezinho, vendo uma seriezinha, vendo b99, fazendo sapecagens, conversando sobre sapecagens, pesquisando sobre sapecagens kkkkk, deixando as sapecagens de lado, todo momento que estou com você eu me divirto muito, e eu realmente quero ter muito mais desses momentos com meu momo.
-                Amo quando meu momo descobre exatamente o que eu to pensando, eu fico felizão por que meu momo presta atenção em mim.
-                Não consigo achar palavras o suficiente pra dizer o quanto eu te amo e te acho linda meu amor, e espero que tenhamos muitos mais anos juntos para ter mais momentos assim, tanto os bons quantos os ruins (mais bons do que ruins espero).</p>
-            </div>
+                Mas também amo quando a gente só fica em casa, conversando, fazendo</p>
         </div>
         <div id="testButton">
             <button onclick="comemorar()">Testar Comemoração</button>
         </div>
     </div>
+    <audio id="fireworkSound">
+        <source src="https://www.soundjay.com/button/beep-09.wav" type="audio/wav">
+    </audio>
 
     <script>
         function calcularTempo() {
@@ -132,19 +132,23 @@
 
         function comemorar() {
             var container = document.querySelector('.container');
-            for (let i = 0; i < 30; i++) {
+            var fireworksAudio = document.getElementById('fireworkSound');
+            fireworksAudio.play(); // Toca o som de fogos de artifício
+            
+            for (let i = 0; i < 50; i++) { // Mais explosões
                 var firework = document.createElement('div');
                 firework.classList.add('firework');
                 firework.style.left = Math.random() * container.offsetWidth + 'px';
                 firework.style.top = Math.random() * container.offsetHeight + 'px';
                 container.appendChild(firework);
             }
+            
             setTimeout(() => {
                 var fireworks = document.querySelectorAll('.firework');
                 fireworks.forEach((firework) => {
                     firework.remove();
                 });
-            }, 3000); // Remove os fogos após 3 segundos
+            }, 8000); // Aumenta o tempo de duração dos fogos de artifício para 8 segundos
         }
     </script>
 </body>
