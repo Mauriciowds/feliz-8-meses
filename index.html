@@ -1,25 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8 Meses de Namoro</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>8 Meses de Amor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #mensagem {
+            margin-top: 50px;
+        }
+        #timer {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Comemorando 8 Meses de Namoro</h1>
-    </header>
-    <div class="content">
-        <h2>Nosso Amor</h2>
-        <p>Oito meses juntos, cheios de amor e felicidade!</p>
-        <p>Aqui uma mensagem especial sobre nós dois...</p>
-        <p>A data atual é: <span id="current-date"></span></p>
-        <p>Faltam <span id="countdown"></span> para o nosso 8º mês de namoro!</p>
+    <h1>8 Meses de Amor!</h1>
+    <div id="mensagem">
+        <p>Parabéns pelo nosso 8º mês juntos! Este é um espaço para você escrever seu texto especial:</p>
+        <textarea id="texto" rows="4" cols="50" placeholder="Digite seu texto aqui..."></textarea>
+        <br>
+        <button onclick="salvarTexto()">Salvar</button>
     </div>
-    <footer>
-        <p>&copy; 2024 - Todos os direitos reservados</p>
-    </footer>
-    <script src="script.js"></script>
+    <div id="timer"></div>
+
+    <script>
+        // Função para salvar o texto
+        function salvarTexto() {
+            var texto = document.getElementById('texto').value;
+            // Aqui você pode adicionar um código para salvar o texto, seja em um banco de dados ou em localStorage
+            alert('Texto salvo com sucesso!');
+        }
+
+        // Função para calcular os meses desde o início do namoro e exibir a contagem
+        function calcularTempo() {
+            var dataInicio = new Date('2023-06-12'); // Coloque a data do início do namoro aqui (ano-mês-dia)
+            var dataAtual = new Date();
+            var diff = Math.abs(dataAtual - dataInicio);
+            var meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+            document.getElementById('timer').innerHTML = 'Já são ' + meses + ' meses juntos!';
+        }
+
+        calcularTempo(); // Chama a função para calcular o tempo assim que a página carrega
+    </script>
 </body>
 </html>
