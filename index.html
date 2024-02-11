@@ -83,8 +83,9 @@
             
             var diff = proximoDia12 - dataAtual;
             var diasRestantes = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            var plural = diasRestantes === 1 ? 'dia' : 'dias'; // Verifica se é singular ou plural
             
-            document.getElementById('timer').innerHTML = 'Faltam ' + diasRestantes + ' dias para o nosso próximo mesversário.';
+            document.getElementById('timer').innerHTML = 'Faltam ' + diasRestantes + ' ' + plural + ' para o nosso próximo mesversário.';
             
             if (dataAtual.getDate() === 12) {
                 document.getElementById('mensagem').style.display = 'block'; // Exibir a mensagem de felicitações
@@ -97,7 +98,7 @@
             var minutos = Math.floor(diff / (1000 * 60) % 60);
             var segundos = Math.floor(diff / 1000 % 60);
             
-            document.getElementById('countdown').innerHTML = diasRestantes + ' dias, ' + horas + ' horas, ' + minutos + ' minutos, ' + segundos + ' segundos.';
+            document.getElementById('countdown').innerHTML = diasRestantes + ' ' + plural + ', ' + horas + ' horas, ' + minutos + ' minutos, ' + segundos + ' segundos.';
         }
 
         setInterval(calcularTempo, 1000);
