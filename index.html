@@ -29,22 +29,31 @@
     <h1>8 Meses de Amor!</h1>
     <div id="mensagem">
         <p>Parabéns pelo nosso 8º mês juntos! Aqui está o texto especial para você:</p>
-        <div id="textoSalvo"></div>
+        <div id="textoSalvo">
+            <p>Oi meu amor, eu resolvi fazer esse presente especial pois sei que meu momo ficou triste por várias coisas que aconteceram, e queria te animar um pouquinho, então resolvi fazer essa cartinha com algumas coisinhas que quero falar pra você, não como desculpa, pra você saber o quanto é especial pra mim.</p>
+
+            <p>Eu quero te dizer que você é incrível, paciente (as vezes), inteligente, amorosa (quando quer), e que eu amo todos nossos momentos juntinhos.
+            Amo ficar de dengo com meu dengo, amo como o dia passa rápido quando eu to com você, amo te estressar (as vezes estresso até demais meu momo), amo te provocar, amo conversar com você sobre os assuntos mais legais, amo nossa intimidade, amo como você sempre ta lá pra mim quando eu preciso, amo como você se preocupa comigo, amo seus olhos e cabelos castanhos que brilham no sol, amo todas as suas unhas, amo suas covinhas, amo seus olhos grandõesss, amo seus dedos elásticos, amo seu amor por rímel, amo como você sempre ta cheirosa, amo seu mindinho que não tem unha, amo você de cabelo preso, amo você de cabelo solto, amo você de vestido e de blusa, amo você de calça e shorts, amo você sem sutiã e com sutiã (sem é particularmente melhor), amo você de pijama, amo você arrumada, amo você selvagem, amo você paty, amo você maloqueira, noia, cria, amo seu jeitinho bobo, amo seu sorriso e sua risada, amo seus peitos, amo sua bunda, amo suas coxas.
+            Além de amar você, amo meus momentos com você
+            Amo quando a gente sai pra vários lugares, tipo quando a gente foi pra praia e meu momo quase morre na onda, ou no show do charlie brown e a gente ficou dançando, ou no barzinho no seu aniversário que ficamos provando as bebidas.
+            Mas também amo quando a gente só fica em casa, conversando, fazendo uns quizes, vendo filmezinho, vendo uma seriezinha, vendo b99, fazendo sapecagens, conversando sobre sapecagens, pesquisando sobre sapecagens kkkkk, deixando as sapecagens de lado, todo momento que estou com você eu me divirto muito, e eu realmente quero ter muito mais desses momentos com meu momo.
+            Amo quando meu momo descobre exatamente o que eu to pensando, eu fico felizão por que meu momo presta atenção em mim.
+            Não consigo achar palavras o suficiente pra dizer o quanto eu te amo e te acho linda meu amor, e espero que tenhamos muitos mais anos juntos para ter mais momentos assim, tanto os bons quantos os ruins (mais bons do que ruins espero).</p>
+        </div>
     </div>
     <div id="timer"></div>
 
     <script>
-        // Texto pré-determinado com vários parágrafos
-        var textoEspecial = "<p>Amor,</p> <p>Nestes 8 meses ao seu lado, cada dia foi uma bênção. Sua presença ilumina minha vida e enche meu coração de alegria. Te amo mais do que palavras podem expressar. Feliz 8º mês de namoro!</p> <p>Com todo o meu amor,</p> <p>Seu Nome</p>";
-
-        // Função para exibir o texto especial
-        function exibirTextoEspecial() {
-            document.getElementById('textoSalvo').innerHTML = textoEspecial;
-        }
-
         // Função para calcular os meses desde o início do namoro e exibir a contagem
         function calcularTempo() {
             var dataInicio = new Date('2023-06-12'); // Coloque a data do início do namoro aqui (ano-mês-dia)
             var dataAtual = new Date();
             var diff = Math.abs(dataAtual - dataInicio);
-            var meses
+            var meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+            document.getElementById('timer').innerHTML = 'Já são ' + meses + ' meses juntos!';
+        }
+
+        calcularTempo(); // Chama a função para calcular o tempo assim que a página carrega
+    </script>
+</body>
+</html>
