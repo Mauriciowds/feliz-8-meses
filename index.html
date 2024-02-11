@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contagem Regressiva</title>
+    <title>Feliz 8 meses</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,11 +49,15 @@
             font-size: 16px;
             line-height: 1.6;
         }
+        #testButton {
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Contagem Regressiva</h1>
+        <h1>Feliz 8 meses meu amor</h1>
         <div id="timer"></div>
         <div id="countdown"></div>
         <div id="mensagem" style="display: none;">
@@ -69,6 +73,9 @@
                 Amo quando meu momo descobre exatamente o que eu to pensando, eu fico felizão por que meu momo presta atenção em mim.
                 Não consigo achar palavras o suficiente pra dizer o quanto eu te amo e te acho linda meu amor, e espero que tenhamos muitos mais anos juntos para ter mais momentos assim, tanto os bons quantos os ruins (mais bons do que ruins espero).</p>
             </div>
+        </div>
+        <div id="testButton">
+            <button onclick="comemorar()">Testar Comemoração</button>
         </div>
     </div>
 
@@ -103,6 +110,11 @@
 
         setInterval(calcularTempo, 1000);
         calcularTempo();
+
+        function comemorar() {
+            alert("Comemoração do mês!");
+            // Aqui você pode adicionar qualquer outra ação de comemoração que desejar
+        }
     </script>
 </body>
 </html>
