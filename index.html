@@ -49,7 +49,7 @@
     <div class="container">
         <h1>Feliz 8 meses meu amor</h1>
         <div id="timer"></div>
-        <div id="mensagem">
+        <div id="mensagem" style="display: none;">
             <p>Feliz 8 meses meu amor, eu espero que tenhamos muito mais meses e anos pela frente</p>
             <div id="textoSalvo">
                 <p>Oi meu amor, eu resolvi fazer esse presente especial pois sei que meu momo ficou triste por várias coisas que aconteceram, e queria te animar um pouquinho, então resolvi fazer essa cartinha com algumas coisinhas que quero falar pra você, não como desculpa, pra você saber o quanto é especial pra mim.</p>
@@ -72,6 +72,13 @@
             var diff = Math.abs(dataAtual - dataInicio);
             var meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
             document.getElementById('timer').innerHTML = 'Já são ' + meses + ' meses juntos!';
+            
+            // Verificar se é dia 12 do mês
+            if (dataAtual.getDate() === 12) {
+                document.getElementById('mensagem').style.display = 'block'; // Exibir a mensagem de felicitações
+            } else {
+                document.getElementById('mensagem').style.display = 'none'; // Esconder a mensagem
+            }
         }
 
         setInterval(calcularTempo, 1000);
