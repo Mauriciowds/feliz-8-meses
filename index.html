@@ -34,6 +34,11 @@
             padding: 10px;
             background-color: #e0f2e9;
         }
+        #countdown {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
         #mensagem {
             margin-top: 20px;
             text-align: left;
@@ -49,6 +54,7 @@
     <div class="container">
         <h1>Feliz 8 meses meu amor</h1>
         <div id="timer"></div>
+        <div id="countdown"></div>
         <div id="mensagem" style="display: none;">
             <p>Feliz 8 meses meu amor, eu espero que tenhamos muito mais meses e anos pela frente</p>
             <div id="textoSalvo">
@@ -84,6 +90,13 @@
             } else {
                 document.getElementById('mensagem').style.display = 'none'; // Esconder a mensagem
             }
+            
+            // Contagem regressiva
+            var horas = Math.floor(diff / (1000 * 60 * 60) % 24);
+            var minutos = Math.floor(diff / (1000 * 60) % 60);
+            var segundos = Math.floor(diff / 1000 % 60);
+            
+            document.getElementById('countdown').innerHTML = 'Tempo restante: ' + diasRestantes + ' dias, ' + horas + ' horas, ' + minutos + ' minutos, ' + segundos + ' segundos.';
         }
 
         setInterval(calcularTempo, 1000);
