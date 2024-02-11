@@ -103,6 +103,7 @@
             var dataAtual = new Date();
             var proximoDia12 = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 12);
             
+            if (dataAtual.getDate() >=
             if (dataAtual.getDate() >= 12) {
                 proximoDia12.setMonth(proximoDia12.getMonth() + 1);
             }
